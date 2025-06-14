@@ -24,26 +24,32 @@ public class StudentManagementSystemApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         System.out.println("All Students : ");
+        System.out.println("--------------");
         studentService.getAllStudents().forEach(System.out::println);
 
         System.out.println("\nGet Student By ID :");
+         System.out.println("--------------");
         System.out.println(studentService.getStudentById(2L));
 
         System.out.println("\nCreate New Student:");
+         System.out.println("--------------");
         Student newStudent = new Student(null, "New Student", "Male", 90.5);
         Student addedStudent = studentService.createStudent(newStudent);
         System.out.println(addedStudent);
 
         System.out.println("\nUpdate Student :");
+         System.out.println("--------------");
         Student updatedStudent = studentService.updateStudent(3L,
                 new Student(null, "Updated Name", "Female", 85.0));
         System.out.println(updatedStudent);
 
         System.out.println("\nDelete Student :");
+         System.out.println("--------------");
         studentService.deleteStudent(5L);
         System.out.println("Student with ID 5 deleted");
 
         System.out.println("\nAll Students after operations:");
+         System.out.println("--------------");
         studentService.getAllStudents().forEach(System.out::println);
 
         try {
